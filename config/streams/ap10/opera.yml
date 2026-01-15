@@ -1,0 +1,30 @@
+OPERA :
+  type : anemoi
+  filenames : ['rodeo-opera-files-2km-2013-2023-15m-v2-lambert-azimuthal-equal-area-with-preprocessing.zarr']
+  # vars are; ['dm', 'qi', 'tp']
+  target_exclude : ['dm', 'qi'] # dm is data mask...
+  # location_weight : qi # 0 - 1 according to anemoi docs :?
+  loss_weight : 1.
+  masking_rate : 0.6
+  masking_rate_none : 0.05
+  token_size : 8
+  tokenize_spacetime : True
+  max_num_targets: -1
+  embed : 
+    net : transformer
+    num_tokens : 1
+    num_heads : 8
+    dim_embed : 256
+    num_blocks : 2
+  embed_target_coords :
+    net : linear
+    dim_embed : 256
+  target_readout :
+    type : 'obs_value'  # token or obs_value
+    num_layers : 2
+    num_heads : 4
+    sampling_rate : 0.01
+  pred_head :
+    ens_size : 1
+    num_layers : 1
+
