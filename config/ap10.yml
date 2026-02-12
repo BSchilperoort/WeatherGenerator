@@ -1,0 +1,19 @@
+streams_directory: "./config/streams/ap10/"
+
+# Freeze ERA5 for finetuning
+freeze_modules: ".*ERA5"
+
+start_date: 201801010000
+end_date: 201906300000
+start_date_val: 2019070100
+end_date_val: 2019123100
+len_hrs: 6
+step_hrs: 6
+input_window_steps: 1
+
+val_initial: False
+
+loader_num_workers: 8
+log_validation: 0
+analysis_streams_output: ["OPERA"]
+
